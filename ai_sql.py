@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 from openai import OpenAI
 
-from backend.schema import get_db_schema, schema_to_text
+from schema import get_db_schema, schema_to_text
 
 load_dotenv()
 

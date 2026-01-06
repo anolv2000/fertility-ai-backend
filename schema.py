@@ -1,5 +1,5 @@
 from sqlalchemy import inspect
-from backend.database import engine
+from database import engine
 
 
 def get_db_schema():
