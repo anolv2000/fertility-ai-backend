@@ -2,8 +2,8 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 
-from backend.ai_sql import generate_sql
-from backend.sql_executor import execute_sql
+from ai_sql import generate_sql
+from sql_executor import execute_sql
 from fastapi import HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
