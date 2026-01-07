@@ -3,15 +3,30 @@ import pandas as pd
 from dotenv import load_dotenv
 from sqlalchemy import create_engine, Column, Integer, Float, String
 from sqlalchemy.orm import declarative_base, sessionmaker
+from sqlalchemy import create_engine
 
 load_dotenv()
 
-DATABASE_URL = os.getenv("DATABASE_URL")
+
 DATASET_PATH = os.getenv("DATASET_PATH")
 
-engine = create_engine(DATABASE_URL, echo=False)
+
 SessionLocal = sessionmaker(bind=engine)
 Base = declarative_base()
+
+
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(BASE_DIR, "data")
+DB_PATH = os.path.join(DATA_DIR, "fertility.db")
+
+# Ensure data directory exists
+os.makedirs(DATA_DIR, exist_ok=True)
+
+engine = create_engine(
+    f"sqlite:///{DB_PATH}",
+    connect_args={"check_same_thread": False}
+)
 
 
 class FertilityStats(Base):
