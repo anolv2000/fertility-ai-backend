@@ -6,6 +6,9 @@ from ai_sql import generate_sql
 from sql_executor import execute_sql
 from fastapi import HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from database import init_db
+
+init_db()
 
 load_dotenv()
 
